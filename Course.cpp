@@ -85,6 +85,6 @@ void dropStudent(char *lastname, Course &course)
 	if (initRoster == course.numStudents)
 	{
 		cout << endl
-			 << "Student witht the last name " << lastname << " was not found." << endl;
+			 << "Student with the last name " << lastname << " was not found." << endl;
 	}
 }
