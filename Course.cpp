@@ -33,8 +33,7 @@ void readStudent(ifstream &inFile, Course &course)
 		strcpy(course.roster[count].last, lastBuffer);
 		course.roster[count].gpa = gpa;
 
-		cout << course.roster[count].first << " " << course.roster[count].last << " " << course.roster[count].gpa;
-		;
+		count++;
 	}
 }
 
