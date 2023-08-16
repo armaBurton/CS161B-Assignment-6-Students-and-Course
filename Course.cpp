@@ -53,7 +53,12 @@ void addStudent(Student student, Course &course)
 // must call the printStd function in Student.h
 void printRoster(Course course)
 {
-	/*Add your code here*/
+	for (int i = 0; i < course.numStudents; i++)
+	{
+		cout << course.roster[i].first << ";"
+			 << course.roster[i].last << ";"
+			 << course.roster[i].gpa;
+	}
 }
 
 /*Based on the grade level you are doing: Please read the appropriate level assignment document.
