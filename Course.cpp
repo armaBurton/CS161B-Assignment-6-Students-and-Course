@@ -31,13 +31,10 @@ void readStudent(ifstream &inFile, Course &course)
 		strcpy(transferStudent.first, firstBuffer);
 		strcpy(transferStudent.last, lastBuffer);
 		transferStudent.gpa = gpa;
-
 		addStudent(transferStudent, course);
 		// strcpy(course.roster[course.numStudents].first, firstBuffer);
 		// strcpy(course.roster[course.numStudents].last, lastBuffer);
 		// course.roster[course.numStudents].gpa = gpa;
-
-		course.numStudents++;
 	}
 }
 
@@ -48,10 +45,64 @@ void readStudent(ifstream &inFile, Course &course)
 // [https://learn.zybooks.com/zybook/PCCCS161BSpring23/chapter/14/section/7]
 void addStudent(Student student, Course &course)
 {
+	// cout << student.first;
+	// if (course.numStudents == 0)
+	// {
 	course.roster[course.numStudents].gpa = student.gpa;
 	strcpy(course.roster[course.numStudents].last, student.last);
 	strcpy(course.roster[course.numStudents].first, student.first);
-	// course.numStudents++;
+	// }
+	// else
+	// {
+
+	for (int i = 0; i < course.numStudents; i++)
+	{
+		if (strcmp(student.last, course.roster[i].last) < 0)
+		{
+
+			cout << student.last << " " << course.roster[i].last << endl;
+			// 			for (int j = course.numStudents + 1; j > i; j--)
+			// 			{
+			// 				// course.roster[j] = course.roster[j - 1];
+			// 				course.roster[j].gpa = course.roster[j - 1].gpa;
+			// 				strcpy(course.roster[j].last, course.roster[j - 1].last);
+			// 				strcpy(course.roster[j].first, course.roster[j - 1].first);
+			// 			}
+			// 		}
+			// 		else
+			// 		{
+			// 			course.roster[i].gpa = student.gpa;
+			// 			strcpy(course.roster[i].last, student.last);
+			// 			strcpy(course.roster[i].first, student.first);
+		}
+	}
+	// }
+	course.numStudents++;
+
+	// if (course.numStudents == 0)
+	// {
+	// 	course.roster[course.numStudents] = student;
+	// }
+	// else
+	// {
+	// 	for (int i = 0; i < course.numStudents; i++)
+	// 	{
+	// 		if (strcmp(student.last, course.roster[i].last) < 0)
+	// 		{
+	// 			for (int j = course.numStudents; j >= i; j--)
+	// 			{
+	// 				strcpy(course.roster[j].first, course.roster[j - 1].first);
+	// 				strcpy(course.roster[j].last, course.roster[j - 1].last);
+	// 				course.roster[j].gpa = course.roster[j - 1].gpa;
+	// 			}
+	// 			course.roster[i] = student;
+	// 		}
+	// 		else
+	// 		{
+	// 			course.roster[course.numStudents + 1] = student;
+	// 		}
+	// 	}
+	// }
 }
 
 // prints a whole Course roster calling student print.
