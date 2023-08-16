@@ -64,6 +64,19 @@ void printRoster(Course course)
 
 /*Based on the grade level you are doing: Please read the appropriate level assignment document.
 add code and function comments for the below 2 functions.
-void dropStudent(char *lastname, Course &course);
 Student findStudentHighestGPA(Course course);
 */
+void dropStudent(char *lastname, Course &course)
+{
+	for (int i = 0; i < course.numStudents; i++)
+	{
+		if (strcmp(lastname, course.roster[i].last) == 0)
+		{
+			for (int j = i; j < course.numStudents; j++)
+			{
+				course.roster[j] = course.roster[j + 1];
+			}
+			course.numStudents--;
+		}
+	}
+}

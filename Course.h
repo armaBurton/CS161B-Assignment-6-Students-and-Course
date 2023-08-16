@@ -30,5 +30,6 @@ Student findStudentHighestGPA(Course course);
 
 // You need the printRoster for all levels.
 void printRoster(Course course);
+void dropStudent(char *lastname, Course &course);
 
 #endif
