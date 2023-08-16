@@ -27,10 +27,15 @@ void readStudent(ifstream &inFile, Course &course)
 	{
 		inFile.getline(lastBuffer, 20, ';');
 		inFile >> gpa;
+		Student transferStudent;
+		strcpy(transferStudent.first, firstBuffer);
+		strcpy(transferStudent.last, lastBuffer);
+		transferStudent.gpa = gpa;
 
-		strcpy(course.roster[course.numStudents].first, firstBuffer);
-		strcpy(course.roster[course.numStudents].last, lastBuffer);
-		course.roster[course.numStudents].gpa = gpa;
+		addStudent(transferStudent, course);
+		// strcpy(course.roster[course.numStudents].first, firstBuffer);
+		// strcpy(course.roster[course.numStudents].last, lastBuffer);
+		// course.roster[course.numStudents].gpa = gpa;
 
 		course.numStudents++;
 	}
@@ -46,7 +51,7 @@ void addStudent(Student student, Course &course)
 	course.roster[course.numStudents].gpa = student.gpa;
 	strcpy(course.roster[course.numStudents].last, student.last);
 	strcpy(course.roster[course.numStudents].first, student.first);
-	course.numStudents++;
+	// course.numStudents++;
 }
 
 // prints a whole Course roster calling student print.
