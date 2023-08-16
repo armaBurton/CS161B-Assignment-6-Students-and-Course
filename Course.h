@@ -5,6 +5,8 @@
 
 #include "Student.h"
 #include <fstream>
+#include <string.h>
+#include <iomanip>
 
 using namespace std;
 
