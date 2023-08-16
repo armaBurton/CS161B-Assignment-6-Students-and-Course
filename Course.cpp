@@ -39,7 +39,8 @@ void readStudent(ifstream &inFile, Course &course)
 // adds a student to the roster, and increment count
 // modify this function to add the student sorted by name
 // do not use any sorting functions.
-// See this example in zyBooks Section 14.7 [https://learn.zybooks.com/zybook/PCCCS161BSpring23/chapter/14/section/7]
+// See this example in zyBooks Section 14.7
+// [https://learn.zybooks.com/zybook/PCCCS161BSpring23/chapter/14/section/7]
 void addStudent(Student student, Course &course)
 {
 	course.roster[course.numStudents].gpa = student.gpa;
@@ -64,7 +65,8 @@ void printRoster(Course course)
 		 << endl;
 }
 
-/*Based on the grade level you are doing: Please read the appropriate level assignment document.
+/*Based on the grade level you are doing: Please read the appropriate
+level assignment document.
 add code and function comments for the below 2 functions.
 Student findStudentHighestGPA(Course course);
 */
@@ -85,6 +87,20 @@ void dropStudent(char *lastname, Course &course)
 	if (initRoster == course.numStudents)
 	{
 		cout << endl
-			 << "Student with the last name " << lastname << " was not found." << endl;
+			 << "Student with the last name " << lastname
+			 << " was not found." << endl;
 	}
+}
+
+Student findStudentHighestGPA(Course course)
+{
+	Student tempHighestStudent;
+	for (int i = 0; i < course.numStudents; i++)
+	{
+		if (tempHighestStudent.gpa < course.roster[i].gpa)
+		{
+			tempHighestStudent.gpa = course.roster[i].gpa;
+		}
+	}
+	return tempHighestStudent;
 }

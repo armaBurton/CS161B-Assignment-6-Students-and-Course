@@ -13,6 +13,7 @@ int main()
 {
   Course course = initCourse();
   ifstream inFile;
+  Student highestStudent;
   char lastName[20];
   cout << "Welcome to my Course Roster Program\n"
        << endl;
@@ -49,7 +50,8 @@ int main()
   dropStudent(lastName, course);
   printRoster(course);
   // calls printStd to print the student with the highest GPA
-
+  highestStudent = findStudentHighestGPA(course);
+  printStd(highestStudent);
   /*Add code here to call function*/
 
   cout << "Thank you for using my Student Roster program!!" << endl;
