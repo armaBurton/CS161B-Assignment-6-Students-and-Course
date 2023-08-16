@@ -46,39 +46,57 @@ void readStudent(ifstream &inFile, Course &course)
 void addStudent(Student student, Course &course)
 {
 	// cout << student.first;
-	// if (course.numStudents == 0)
-	// {
-	course.roster[course.numStudents].gpa = student.gpa;
-	strcpy(course.roster[course.numStudents].last, student.last);
-	strcpy(course.roster[course.numStudents].first, student.first);
-	// }
-	// else
-	// {
-
-	for (int i = 0; i < course.numStudents; i++)
+	if (course.numStudents == 0)
 	{
-		if (strcmp(student.last, course.roster[i].last) < 0)
-		{
+		course.roster[course.numStudents] = student;
+		// course.roster[course.numStudents].gpa = student.gpa;
+		// strcpy(course.roster[course.numStudents].last, student.last);
+		// strcpy(course.roster[course.numStudents].first, student.first);
+		// course.roster[course.numStudents] = student;
+	}
+	else
+	{
 
-			cout << student.last << " " << course.roster[i].last << endl;
-			// 			for (int j = course.numStudents + 1; j > i; j--)
-			// 			{
-			// 				// course.roster[j] = course.roster[j - 1];
-			// 				course.roster[j].gpa = course.roster[j - 1].gpa;
-			// 				strcpy(course.roster[j].last, course.roster[j - 1].last);
-			// 				strcpy(course.roster[j].first, course.roster[j - 1].first);
-			// 			}
-			// 		}
-			// 		else
-			// 		{
-			// 			course.roster[i].gpa = student.gpa;
-			// 			strcpy(course.roster[i].last, student.last);
-			// 			strcpy(course.roster[i].first, student.first);
+		for (int i = 0; i < course.numStudents; i++)
+		{
+			if (strcmp(student.last, course.roster[i].last) > 0)
+			{
+				cout << course.roster[i].last << endl;
+				cout << student.last << endl;
+				course.roster[i] = student;
+				// for (int j = course.numStudents + 1; j > i; j--)
+				// {
+				// 	course.roster[j] = course.roster[j - 1];
+				// 	cout << course.roster[j].first << endl;
+				// }
+				// course.roster[i] = student;
+				// cout << student.last << " " << course.roster[i].last << endl;
+				// 			for (int j = course.numStudents + 1; j > i; j--)
+				// 			{
+				// 				// course.roster[j] = course.roster[j - 1];
+				// 				course.roster[j].gpa = course.roster[j - 1].gpa;
+				// 				strcpy(course.roster[j].last, course.roster[j - 1].last);
+				// 				strcpy(course.roster[j].first, course.roster[j - 1].first);
+				// 			}
+				// 		}
+				// 		else
+				// 		{
+				// 			course.roster[i].gpa = student.gpa;
+				// 			strcpy(course.roster[i].last, student.last);
+				// 			strcpy(course.roster[i].first, student.first);
+			}
+			else
+			{
+				for (int j = course.numStudents; j > i; j--)
+				{
+					course.roster[j] = course.roster[j - 1];
+				}
+				course.roster[i] = student;
+			}
 		}
 	}
-	// }
 	course.numStudents++;
-
+	cout << endl;
 	// if (course.numStudents == 0)
 	// {
 	// 	course.roster[course.numStudents] = student;
