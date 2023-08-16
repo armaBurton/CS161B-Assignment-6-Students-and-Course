@@ -70,6 +70,7 @@ Student findStudentHighestGPA(Course course);
 */
 void dropStudent(char *lastname, Course &course)
 {
+	int initRoster = course.numStudents;
 	for (int i = 0; i < course.numStudents; i++)
 	{
 		if (strcmp(lastname, course.roster[i].last) == 0)
@@ -80,5 +81,10 @@ void dropStudent(char *lastname, Course &course)
 			}
 			course.numStudents--;
 		}
+	}
+	if (initRoster == course.numStudents)
+	{
+		cout << endl
+			 << "Student witht the last name " << lastname << " was not found." << endl;
 	}
 }
