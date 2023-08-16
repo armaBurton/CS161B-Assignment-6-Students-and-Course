@@ -59,6 +59,7 @@ void printRoster(Course course)
 			 << course.roster[i].last << ";"
 			 << course.roster[i].gpa;
 	}
+	cout << endl;
 }
 
 /*Based on the grade level you are doing: Please read the appropriate level assignment document.
