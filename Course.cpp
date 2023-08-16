@@ -22,18 +22,17 @@ void readStudent(ifstream &inFile, Course &course)
 	char firstBuffer[20];
 	char lastBuffer[20];
 	double gpa;
-	int count = 0;
 
 	while (inFile.getline(firstBuffer, 20, ';'))
 	{
 		inFile.getline(lastBuffer, 20, ';');
 		inFile >> gpa;
 
-		strcpy(course.roster[count].first, firstBuffer);
-		strcpy(course.roster[count].last, lastBuffer);
-		course.roster[count].gpa = gpa;
+		strcpy(course.roster[course.numStudents].first, firstBuffer);
+		strcpy(course.roster[course.numStudents].last, lastBuffer);
+		course.roster[course.numStudents].gpa = gpa;
 
-		count++;
+		course.numStudents++;
 	}
 }
 
