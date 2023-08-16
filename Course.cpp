@@ -99,7 +99,7 @@ Student findStudentHighestGPA(Course course)
 	{
 		if (tempHighestStudent.gpa < course.roster[i].gpa)
 		{
-			tempHighestStudent.gpa = course.roster[i].gpa;
+			tempHighestStudent = course.roster[i];
 		}
 	}
 	return tempHighestStudent;
